@@ -8,7 +8,7 @@ public class PostController {
     
     @PostMapping("/")
     public String createPost(String title, String content) {
-        return title + ": " + content + "게사글 생성 완료";   
+        return title + ": " + content + "게시글 생성 완료";
     }
     
     @GetMapping("/{post-id}")
@@ -22,7 +22,7 @@ public class PostController {
     }
 
     @DeleteMapping("/{post-id}")
-    public String deletetById(@PathVariable(value = "post-id") Long id) {
+    public String deleteById(@PathVariable(value = "post-id") Long id) {
         return id + "번 게시글 삭제 완료";
     }
 }
