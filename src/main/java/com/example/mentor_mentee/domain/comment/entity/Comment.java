@@ -19,14 +19,6 @@ public class Comment {
     @Column(name= "id")
     private Long id;
 
-    @Column(nullable = false)
-    private String writer;
-
-    @Column(nullable = false)
-    private String content;
-
-    @Column(nullable = false)
-    @Builder.Default
-    private Long likeCount = 0L;
-
+    @Column(name = "body", nullable = false, length = 300)
+    private String body;
 }
