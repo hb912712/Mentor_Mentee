@@ -11,12 +11,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Comment")
+@Table(name = "comment")
 public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "id")
     private Long id;
 
     @Column(name = "body", nullable = false, length = 300)

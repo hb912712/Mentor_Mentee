@@ -8,6 +8,6 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @Builder
 public class CommentResponseDto {
-    private final Long id;
+    private final Long commentId;
     private final String body;
 }

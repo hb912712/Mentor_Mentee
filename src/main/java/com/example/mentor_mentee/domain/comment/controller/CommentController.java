@@ -19,7 +19,7 @@ public class CommentController {
         return responseDto;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public String getAllByComments() {
         return "댓글 리스트 조회 완료";
     }
