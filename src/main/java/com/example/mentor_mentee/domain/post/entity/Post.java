@@ -1,22 +1,26 @@
 package com.example.mentor_mentee.domain.post.entity;
 
+import com.example.mentor_mentee.domain.comment.entity.Comment;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Post")
+@Table(name= "post")
 public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "id")
+    @Column(name = "id")
     private Long id;
 
     @Column(nullable = false)
@@ -25,8 +29,14 @@ public class Post {
     @Column(nullable = false)
     private String content;
 
-    @Column(nullable = false)
+    // 추가된 부분
+    @OneToMany(mappedBy = "post")
     @Builder.Default
-    private Long views = 0L;
+    private List<Comment> comments = new ArrayList<>();
 
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }
+

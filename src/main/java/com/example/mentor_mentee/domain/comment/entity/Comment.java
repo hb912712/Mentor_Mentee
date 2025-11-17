@@ -1,5 +1,6 @@
 package com.example.mentor_mentee.domain.comment.entity;
 
+import com.example.mentor_mentee.domain.post.entity.Post;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "comment")
+@Table(name= "comment")
 public class Comment {
 
     @Id
@@ -20,4 +21,11 @@ public class Comment {
 
     @Column(name = "body", nullable = false, length = 300)
     private String body;
+
+    // 추가된 부분
+    // N:1 관계
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id", nullable = false) // FK 생성
+    private Post post;
 }
+
